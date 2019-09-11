@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5508511C-174A-4F31-BC19-855081AA7302}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bedrock.DomainBuilder</RootNamespace>
+    <AssemblyName>Bedrock.DomainBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Data">
+      <HintPath>..\packages\VSSDK.Data.12.12.0.2\lib\net45\Microsoft.VisualStudio.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Data.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.Data.12.12.0.2\lib\net45\Microsoft.VisualStudio.Data.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Data.Framework, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.Data.12.12.0.2\lib\net45\Microsoft.VisualStudio.Data.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Data.Services, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.Data.12.12.0.2\lib\net45\Microsoft.VisualStudio.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.OLE.Interop.7.0.2\lib\net20\Microsoft.VisualStudio.OLE.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.Shell.Interop.7.0.2\lib\net20\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\packages\VSSDK.TextManager.Interop.7.0.2\lib\net20\Microsoft.VisualStudio.TextManager.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\BuilderAutoMapperProfile.cs" />
+    <Compile Include="Builder\BuilderAppContext.cs" />
+    <Compile Include="Builder\BuilderControllerApi.cs" />
+    <Compile Include="Builder\BuilderControllerMvc.cs" />
+    <Compile Include="Builder\BuilderContract.cs" />
+    <Compile Include="Builder\BuilderAppService.cs" />
+    <Compile Include="Builder\BuilderAppServiceInterface.cs" />
+    <Compile Include="Builder\BuilderEntityPartial.cs" />
+    <Compile Include="BuildWarning.cs" />
+    <Compile Include="Builder\AFBuilderFactory.cs" />
+    <Compile Include="Builder\BuilderBase.cs" />
+    <Compile Include="Builder\BuilderService.cs" />
+    <Compile Include="Builder\BuilderEnumeration.cs" />
+    <Compile Include="Builder\BuilderContext.cs" />
+    <Compile Include="Builder\BuilderMapping.cs" />
+    <Compile Include="Builder\BuilderServiceInterface.cs" />
+    <Compile Include="BuildManager.cs" />
+    <Compile Include="BuildStatistics.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionAutoMapperProfile.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionAppServiceInterface.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionAppService.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionControllerApi.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionControllerMvc.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionContract.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionAppContext.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionEntityPartial.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionServiceInterface.cs" />
+    <Compile Include="Enumerations\eAppServiceType.cs" />
+    <Compile Include="Enumerations\eContractType.cs" />
+    <Compile Include="Enumerations\eControllerMvcType.cs" />
+    <Compile Include="Enumerations\eControllerApiType.cs" />
+    <Compile Include="Enumerations\eDeletableField.cs" />
+    <Compile Include="Enumerations\eEnumName.cs" />
+    <Compile Include="Enumerations\eBuilder.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionEnumeration.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionService.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionContext.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionMapping.cs" />
+    <Compile Include="Builder\IBuilder.cs" />
+    <Compile Include="Enumerations\eContextType.cs" />
+    <Compile Include="Enumerations\eEnumValue.cs" />
+    <Compile Include="Enumerations\eNumericType.cs" />
+    <Compile Include="Enumerations\eServiceType.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Sections\AppContext\SectionClass.cs" />
+    <Compile Include="Sections\AppContext\SectionClassClose.cs" />
+    <Compile Include="Sections\AppContext\SectionConstructors.cs" />
+    <Compile Include="Sections\AppContext\SectionInterface.cs" />
+    <Compile Include="Sections\AppContext\SectionPrivateMethods.cs" />
+    <Compile Include="Sections\AppContext\SectionPublicMethods.cs" />
+    <Compile Include="Sections\AppContext\SectionNamespace.cs" />
+    <Compile Include="Sections\AppContext\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\AppContext\SectionInterfaceProperties.cs" />
+    <Compile Include="Sections\AppContext\SectionProperties.cs" />
+    <Compile Include="Sections\AppContext\SectionUsingStatements.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionInterface.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionInterfaceClose.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionMethods.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionNamespace.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionProperties.cs" />
+    <Compile Include="Sections\AppServiceInterface\SectionUsingStatements.cs" />
+    <Compile Include="Sections\AppService\SectionClass.cs" />
+    <Compile Include="Sections\AppService\SectionClassClose.cs" />
+    <Compile Include="Sections\AppService\SectionConstructors.cs" />
+    <Compile Include="Sections\AppService\SectionInterfaceMethods.cs" />
+    <Compile Include="Sections\AppService\SectionNamespace.cs" />
+    <Compile Include="Sections\AppService\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\AppService\SectionProperties.cs" />
+    <Compile Include="Sections\AppService\SectionUsingStatements.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionClass.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionClassClose.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionConstructors.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionNamespace.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\AutoMapperProfile\SectionUsingStatements.cs" />
+    <Compile Include="Sections\Context\SectionProtectedMethods.cs" />
+    <Compile Include="Sections\Context\SectionClassClose.cs" />
+    <Compile Include="Sections\Context\SectionClass.cs" />
+    <Compile Include="Sections\Context\SectionConstructors.cs" />
+    <Compile Include="Sections\Context\SectionPrivateMethods.cs" />
+    <Compile Include="Sections\Context\SectionProperties.cs" />
+    <Compile Include="Sections\Contract\SectionClass.cs" />
+    <Compile Include="Sections\Contract\SectionClassClose.cs" />
+    <Compile Include="Sections\Contract\SectionConstructors.cs" />
+    <Compile Include="Sections\Contract\SectionNamespace.cs" />
+    <Compile Include="Sections\Contract\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\Contract\SectionProperties.cs" />
+    <Compile Include="Sections\Contract\SectionUsingStatements.cs" />
+    <Compile Include="Sections\ControllerApi\SectionClass.cs" />
+    <Compile Include="Sections\ControllerApi\SectionClassClose.cs" />
+    <Compile Include="Sections\ControllerApi\SectionConstructors.cs" />
+    <Compile Include="Sections\ControllerApi\SectionNamespace.cs" />
+    <Compile Include="Sections\ControllerApi\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\ControllerApi\SectionApiMethods.cs" />
+    <Compile Include="Sections\ControllerApi\SectionProperties.cs" />
+    <Compile Include="Sections\ControllerApi\SectionUsingStatements.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionActionMethods.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionClass.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionClassClose.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionConstructors.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionNamespace.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionProperties.cs" />
+    <Compile Include="Sections\ControllerMvc\SectionUsingStatements.cs" />
+    <Compile Include="Sections\EntityPartial\SectionClass.cs" />
+    <Compile Include="Sections\EntityPartial\SectionClassClose.cs" />
+    <Compile Include="Sections\EntityPartial\SectionInternalClasses.cs" />
+    <Compile Include="Sections\EntityPartial\SectionNamespace.cs" />
+    <Compile Include="Sections\EntityPartial\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\EntityPartial\SectionPrivateMethods.cs" />
+    <Compile Include="Sections\EntityPartial\SectionProperties.cs" />
+    <Compile Include="Sections\EntityPartial\SectionUsingStatements.cs" />
+    <Compile Include="Sections\Entity\SectionPrivateMethodsAddChildrenCreate.cs" />
+    <Compile Include="Sections\Entity\SectionPrivateMethodsAddChildrenUpdate.cs" />
+    <Compile Include="Sections\Entity\SectionPrivateMethodsDeleteChildrenUpdate.cs" />
+    <Compile Include="Sections\Entity\SectionPrivateMethodsUpdateChildren.cs" />
+    <Compile Include="Sections\Entity\SectionPublicMethods.cs" />
+    <Compile Include="Sections\Entity\SectionPublicMethodsCreate.cs" />
+    <Compile Include="Sections\Entity\SectionPublicMethodsUpdate.cs" />
+    <Compile Include="Sections\Enumeration\SectionMembers.cs" />
+    <Compile Include="Sections\Enumeration\SectionEnumClose.cs" />
+    <Compile Include="Sections\Enumeration\SectionEnum.cs" />
+    <Compile Include="Sections\Enumeration\SectionNamespace.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryAutoMapperProfile.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryAppContext.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryControllerMvc.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryControllerApi.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryEntityPartial.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryEnumeration.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryService.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryMapping.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryContext.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryEntity.cs" />
+    <Compile Include="Builder\BuilderEntity.cs" />
+    <Compile Include="Sections\Context\SectionNamespace.cs" />
+    <Compile Include="Sections\Context\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\Context\SectionUsingStatements.cs" />
+    <Compile Include="Sections\Enumeration\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryServiceInterface.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryContract.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryAppService.cs" />
+    <Compile Include="Sections\Factory\AFSectionFactoryAppServiceInterface.cs" />
+    <Compile Include="Sections\Mapping\SectionClass.cs" />
+    <Compile Include="Sections\Mapping\SectionClassClose.cs" />
+    <Compile Include="Sections\Mapping\SectionConstructors.cs" />
+    <Compile Include="Sections\Mapping\SectionNamespace.cs" />
+    <Compile Include="Sections\Mapping\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\Mapping\SectionPublicMethods.cs" />
+    <Compile Include="Sections\Mapping\SectionUsingStatements.cs" />
+    <Compile Include="Sections\SectionBase.cs" />
+    <Compile Include="Sections\Entity\SectionAttributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionClassClose.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionConstructors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionFields.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionIValidatable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionNamespace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionNamespaceClose.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionPrivateMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionProperties.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sections\Entity\SectionUsingStatements.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BuildPass.cs" />
+    <Compile Include="BuildSettings.cs" />
+    <Compile Include="EntityFramework\Accessibility.cs" />
+    <Compile Include="EntityFramework\CodeGenerationTools.cs" />
+    <Compile Include="EntityFramework\EdmMapping.cs" />
+    <Compile Include="EntityFramework\EntityHelper.cs" />
+    <Compile Include="EntityFramework\MetaDataTools.cs" />
+    <Compile Include="Enumerations\BuildSection\eBuildSectionEntity.cs" />
+    <Compile Include="Sections\SectionEmpty.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionMethods.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionInterface.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionInterfaceClose.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionNamespace.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionProperties.cs" />
+    <Compile Include="Sections\ServiceInterface\SectionUsingStatements.cs" />
+    <Compile Include="Sections\Service\SectionClass.cs" />
+    <Compile Include="Sections\Service\SectionClassClose.cs" />
+    <Compile Include="Sections\Service\SectionConstructors.cs" />
+    <Compile Include="Sections\Service\SectionNamespace.cs" />
+    <Compile Include="Sections\Service\SectionNamespaceClose.cs" />
+    <Compile Include="Sections\Service\SectionInterfaceMethods.cs" />
+    <Compile Include="Sections\Service\SectionUsingStatements.cs" />
+    <Compile Include="StringBuilder.cs" />
+    <Compile Include="Enumerations\eAuditField.cs" />
+    <Compile Include="Enumerations\eBuildStage.cs" />
+    <Compile Include="Enumerations\ePrimaryKeyType.cs" />
+    <Compile Include="Enumerations\eDomain.cs" />
+    <Compile Include="Enumerations\eEntityType.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Sections\ISection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\IOHelper.cs" />
+    <Compile Include="Utility\Thread\PauseToken.cs" />
+    <Compile Include="Utility\Thread\PauseTokenSource.cs" />
+    <Compile Include="Utility\TypeSwitch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\EnumsTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\RootsTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
